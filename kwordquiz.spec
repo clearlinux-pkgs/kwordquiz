@@ -6,7 +6,7 @@
 #
 Name     : kwordquiz
 Version  : 18.08.0
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/applications/18.08.0/src/kwordquiz-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/kwordquiz-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/kwordquiz-18.08.0.tar.xz.sig
@@ -77,7 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535264204
+export SOURCE_DATE_EPOCH=1535433521
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -85,7 +85,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535264204
+export SOURCE_DATE_EPOCH=1535433521
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kwordquiz
 cp COPYING %{buildroot}/usr/share/doc/kwordquiz/COPYING
@@ -273,6 +273,7 @@ popd
 /usr/share/kwordquiz/icons/hicolor/scalable/actions/unmarkasblank.svgz
 /usr/share/kxmlgui5/kwordquiz/kwordquizui.rc
 /usr/share/metainfo/org.kde.kwordquiz.appdata.xml
+/usr/share/xdg/kwordquiz.knsrc
 
 %files doc
 %defattr(0644,root,root,0755)
