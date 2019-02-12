@@ -5,24 +5,24 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kwordquiz
-Version  : 18.08.0
-Release  : 2
-URL      : https://download.kde.org/stable/applications/18.08.0/src/kwordquiz-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/kwordquiz-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/kwordquiz-18.08.0.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 18.12.2
+Release  : 3
+URL      : https://download.kde.org/stable/applications/18.12.2/src/kwordquiz-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/kwordquiz-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/kwordquiz-18.12.2.tar.xz.sig
+Summary  : Flash Card Trainer
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.0
-Requires: kwordquiz-bin
-Requires: kwordquiz-data
-Requires: kwordquiz-license
-Requires: kwordquiz-locales
+Requires: kwordquiz-bin = %{version}-%{release}
+Requires: kwordquiz-data = %{version}-%{release}
+Requires: kwordquiz-license = %{version}-%{release}
+Requires: kwordquiz-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : knotifyconfig-dev
 BuildRequires : libkeduvocdocument-dev
 BuildRequires : phonon-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 
@@ -30,8 +30,8 @@ BuildRequires : qtbase-dev qtbase-extras mesa-dev
 %package bin
 Summary: bin components for the kwordquiz package.
 Group: Binaries
-Requires: kwordquiz-data
-Requires: kwordquiz-license
+Requires: kwordquiz-data = %{version}-%{release}
+Requires: kwordquiz-license = %{version}-%{release}
 
 %description bin
 bin components for the kwordquiz package.
@@ -70,27 +70,27 @@ locales components for the kwordquiz package.
 
 
 %prep
-%setup -q -n kwordquiz-18.08.0
+%setup -q -n kwordquiz-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535433521
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549944941
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535433521
+export SOURCE_DATE_EPOCH=1549944941
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kwordquiz
-cp COPYING %{buildroot}/usr/share/doc/kwordquiz/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/kwordquiz/COPYING.DOC
-cp COPYING.LIB %{buildroot}/usr/share/doc/kwordquiz/COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/kwordquiz
+cp COPYING %{buildroot}/usr/share/package-licenses/kwordquiz/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/kwordquiz/COPYING.DOC
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kwordquiz/COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -384,10 +384,10 @@ popd
 /usr/share/doc/HTML/uk/kwordquiz/kwq-tutor-welcome.png
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kwordquiz/COPYING
-/usr/share/doc/kwordquiz/COPYING.DOC
-/usr/share/doc/kwordquiz/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kwordquiz/COPYING
+/usr/share/package-licenses/kwordquiz/COPYING.DOC
+/usr/share/package-licenses/kwordquiz/COPYING.LIB
 
 %files locales -f kwordquiz.lang
 %defattr(-,root,root,-)
