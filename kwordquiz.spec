@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kwordquiz
-Version  : 20.08.0
-Release  : 22
-URL      : https://download.kde.org/stable/release-service/20.08.0/src/kwordquiz-20.08.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.08.0/src/kwordquiz-20.08.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.08.0/src/kwordquiz-20.08.0.tar.xz.sig
+Version  : 20.08.2
+Release  : 23
+URL      : https://download.kde.org/stable/release-service/20.08.2/src/kwordquiz-20.08.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.2/src/kwordquiz-20.08.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.2/src/kwordquiz-20.08.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.0
@@ -71,15 +71,15 @@ locales components for the kwordquiz package.
 
 
 %prep
-%setup -q -n kwordquiz-20.08.0
-cd %{_builddir}/kwordquiz-20.08.0
+%setup -q -n kwordquiz-20.08.2
+cd %{_builddir}/kwordquiz-20.08.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1597795688
+export SOURCE_DATE_EPOCH=1602610982
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -95,12 +95,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1597795688
+export SOURCE_DATE_EPOCH=1602610982
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kwordquiz
-cp %{_builddir}/kwordquiz-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/kwordquiz/133efad5329acf364135c569ac01ec084c3d4647
-cp %{_builddir}/kwordquiz-20.08.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kwordquiz/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/kwordquiz-20.08.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kwordquiz/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kwordquiz-20.08.2/COPYING %{buildroot}/usr/share/package-licenses/kwordquiz/133efad5329acf364135c569ac01ec084c3d4647
+cp %{_builddir}/kwordquiz-20.08.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kwordquiz/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kwordquiz-20.08.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/kwordquiz/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 pushd clr-build
 %make_install
 popd
