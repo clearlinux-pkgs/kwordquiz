@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kwordquiz
-Version  : 22.12.2
-Release  : 49
-URL      : https://download.kde.org/stable/release-service/22.12.2/src/kwordquiz-22.12.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.12.2/src/kwordquiz-22.12.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.12.2/src/kwordquiz-22.12.2.tar.xz.sig
+Version  : 22.12.3
+Release  : 50
+URL      : https://download.kde.org/stable/release-service/22.12.3/src/kwordquiz-22.12.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.3/src/kwordquiz-22.12.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.3/src/kwordquiz-22.12.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.0
@@ -73,15 +73,15 @@ locales components for the kwordquiz package.
 
 
 %prep
-%setup -q -n kwordquiz-22.12.2
-cd %{_builddir}/kwordquiz-22.12.2
+%setup -q -n kwordquiz-22.12.3
+cd %{_builddir}/kwordquiz-22.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1676860943
+export SOURCE_DATE_EPOCH=1677778884
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -97,7 +97,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1676860943
+export SOURCE_DATE_EPOCH=1677778884
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kwordquiz
 cp %{_builddir}/kwordquiz-%{version}/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kwordquiz/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc || :
